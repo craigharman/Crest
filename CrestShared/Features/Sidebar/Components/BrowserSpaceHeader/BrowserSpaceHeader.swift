@@ -16,6 +16,7 @@ struct BrowserSpaceHeader: View {
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var isHovering = false
+    @FocusState private var isActionsMenuFocused: Bool
 
     init(
         space: some BrowserSpaceIdentifying, isPrivateBrowsing: Bool, isSavedTabsExpanded: Binding<Bool>,
@@ -38,9 +39,10 @@ struct BrowserSpaceHeader: View {
                     metrics: metrics,
                     actions: actions
                 )
-                // A pointer finds the menu where it rests; a finger has no
-                // hover to reveal it with.
-                .opacity(isHovering || capabilities.supportsTouch ? 1 : 0)
+                .focused($isActionsMenuFocused)
+                // A pointer finds the menu where it rests and a keyboard where
+                // focus lands; a finger has no hover to reveal it with.
+                .opacity(isHovering || isActionsMenuFocused || capabilities.supportsTouch ? 1 : 0)
             }
             .padding(.leading, capabilities.tabRowMetrics.contentLeadingInset)
             .padding(.trailing, CrestSpacing.extraSmall)
