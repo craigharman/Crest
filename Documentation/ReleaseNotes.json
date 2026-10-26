@@ -4597,6 +4597,10 @@
     "arc-style-sidebar-review-fixes": {
       "category": "internal",
       "message": "The Space header's actions menu shows while it has keyboard focus, and iPhone and iPad pins keep their height."
+    },
+    "arc-style-sidebar-hidden-menu-clicks": {
+      "category": "internal",
+      "message": "Clicks pass through the Space header's actions menu while it is hidden."
     }
   }
 }

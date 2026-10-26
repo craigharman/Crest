@@ -40,9 +40,8 @@ struct BrowserSpaceHeader: View {
                     actions: actions
                 )
                 .focused($isActionsMenuFocused)
-                // A pointer finds the menu where it rests and a keyboard where
-                // focus lands; a finger has no hover to reveal it with.
-                .opacity(isHovering || isActionsMenuFocused || capabilities.supportsTouch ? 1 : 0)
+                .allowsHitTesting(revealsActionsMenu)
+                .opacity(revealsActionsMenu ? 1 : 0)
             }
             .padding(.leading, capabilities.tabRowMetrics.contentLeadingInset)
             .padding(.trailing, CrestSpacing.extraSmall)
@@ -53,6 +52,12 @@ struct BrowserSpaceHeader: View {
         .onHover { isHovering = $0 }
         .animation(CrestMotion.surface.unlessReducingMotion(reduceMotion), value: isHovering)
         .padding(.horizontal, BrowserSidebarMetrics.layerInset)
+    }
+
+    /// A pointer finds the menu where it rests and a keyboard where focus
+    /// lands; a finger has no hover to reveal it with.
+    private var revealsActionsMenu: Bool {
+        isHovering || isActionsMenuFocused || capabilities.supportsTouch
     }
 
     private var title: some View {
