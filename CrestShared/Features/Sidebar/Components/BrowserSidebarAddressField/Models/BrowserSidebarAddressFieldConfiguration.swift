@@ -55,7 +55,7 @@ struct BrowserSidebarAddressFieldConfiguration {
     /// Whether the lock-or-search glyph stands in the leading slot instead.
     var showsPlaceholderGlyph: Bool {
         guard !showsLeadingAccessory else { return false }
-        return isEditing.wrappedValue || (hasResidentPage && !text.wrappedValue.isEmpty)
+        return isEditing.wrappedValue || text.wrappedValue.isEmpty || hasResidentPage
     }
 
     /// Whether the live site's settings control takes the trailing slot.

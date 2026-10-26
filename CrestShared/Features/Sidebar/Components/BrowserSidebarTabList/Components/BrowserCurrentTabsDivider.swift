@@ -22,11 +22,11 @@ struct BrowserCurrentTabsDivider: View {
     var body: some View {
         Group {
             if revealsOnHoverOnly {
-                ZStack(alignment: .trailing) {
-                    line
-                    clearButton
-                }
-                .padding(.vertical, metrics.dividerVerticalInset)
+                // The control floats over the seam, so only the inset sets
+                // the air around the line.
+                line
+                    .overlay(alignment: .trailing) { clearButton }
+                    .padding(.vertical, metrics.dividerVerticalInset)
             } else {
                 line
                     .overlay(alignment: .trailing) { clearButton }
