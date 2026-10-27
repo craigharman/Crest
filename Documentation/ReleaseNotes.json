@@ -4601,6 +4601,10 @@
     "arc-style-sidebar-hidden-menu-clicks": {
       "category": "internal",
       "message": "Clicks pass through the Space header's actions menu while it is hidden."
+    },
+    "arc-style-sidebar-mobile-address-glyph": {
+      "category": "internal",
+      "message": "The iPhone address field keeps its search glyph for editing only."
     }
   }
 }
