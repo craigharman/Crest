@@ -61,6 +61,9 @@ struct BrowserCurrentTabsDivider: View {
         .foregroundStyle(.secondary)
         .fixedSize()
         .opacity(showsClearButton ? 1 : 0)
+        // On a pointer shell the control overhangs the rows beside the seam,
+        // so it takes no clicks from them while it is hidden.
+        .allowsHitTesting(showsClearButton)
         .disabled(!canClear || !showsClearButton)
         .accessibilityHidden(!showsClearButton)
         .accessibilityLabel("Clear Open Tabs")

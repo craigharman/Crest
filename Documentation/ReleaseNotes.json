@@ -4605,6 +4605,10 @@
     "arc-style-sidebar-mobile-address-glyph": {
       "category": "internal",
       "message": "The iPhone address field keeps its search glyph for editing only."
+    },
+    "arc-style-sidebar-hidden-clear-clicks": {
+      "category": "internal",
+      "message": "Clicks pass through the hidden Clear control beside the open tabs divider."
     }
   }
 }
